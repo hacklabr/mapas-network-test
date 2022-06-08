@@ -1,3 +1,6 @@
 [submodule "plugins/MultipleLocalAuth"]
 	path = plugins/MultipleLocalAuth
 	url = https://github.com/mapasculturais/plugin-MultipleLocalAuth
+[submodule "plugins/MapasNetwork"]
+	path = plugins/MapasNetwork
+	url = https://github.com/mapasculturais/plugin-MapasNetwork
