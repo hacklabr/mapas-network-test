@@ -1,7 +1,9 @@
 <?php
-$host = $_SERVER['HTTP_HOST'] ?? '';
+$parsed_base_url = parse_url(env('BASE_URL', ''));
+
+$host = $parsed_base_url['host'];
 $network_config = [
-        'nodeSlug' => str_replace('.', '', $_SERVER['HOSTNAME'] ?? parse_url($app->baseUrl, PHP_URL_HOST)),
+        'nodeSlug' => str_replace('.', '', $host),
         'filters' => [
             'agent' => [],
             'space' => []
@@ -15,26 +17,26 @@ $network_config = [
 
 switch($host) {
     case 'nacional.integrador.testes.map.as':
-        $network_config['nodeSlug'] = 'NACIONAL';
+        $network_config['nodeSlug'] = str_replace('.', '', 'nacional.integrador.testes.map.as');
         $network_config['nodes'] = ['https://sp.integrador.testes.map.as/', 'https://sc.integrador.testes.map.as/'];
         break;
 
     case 'sc.integrador.testes.map.as':
-        $network_config['nodeSlug'] = 'SC';
+        $network_config['nodeSlug'] =  str_replace('.', '', 'sc.integrador.testes.map.as');
         $network_config['filters']['agent']['En_Estado'] = 'SC';
         $network_config['filters']['space']['En_Estado'] = 'SC';
         $network_config['nodes'] = ['https://nacional.integrador.testes.map.as/'];
         break;
 
     case 'sp.integrador.testes.map.as':
-        $network_config['nodeSlug'] = 'SP';
+        $network_config['nodeSlug'] =  str_replace('.', '', 'sp.integrador.testes.map.as');
         $network_config['filters']['agent']['En_Estado'] = 'SP';
         $network_config['filters']['space']['En_Estado'] = 'SP';
         $network_config['nodes'] = ['https://nacional.integrador.testes.map.as/', 'https://sampa.integrador.testes.map.as/'];
         break;
 
     case 'sampa.integrador.testes.map.as':
-        $network_config['nodeSlug'] = 'SAMPA';
+        $network_config['nodeSlug'] =  str_replace('.', '', 'sampa.integrador.testes.map.as');
         $network_config['filters']['agent']['En_Estado'] = 'SP';
         $network_config['filters']['space']['En_Estado'] = 'SP';
         $network_config['filters']['agent']['En_Municipio'] = 'São Paulo';
