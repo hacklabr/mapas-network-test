@@ -21,5 +21,8 @@ return [
         'user'           => env('DB_USER', 'mapas'),
         'password'       => env('DB_PASS', 'mapas'),
         'server_version' => env('DB_VERSION', 10),
-    ]
+    ],
+
+    'plugin.MapasNetwork.log' => true,
+    
 ];
